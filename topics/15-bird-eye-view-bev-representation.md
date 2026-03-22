@@ -1,0 +1,447 @@
+# FSD v12 - Full Self-Driving v12 Update history
+
+## Introduction
+
+FSD v12 represents Tesla's most advanced Full self-driving capability. This document covers the new features, improvements, architecture changes, and best practices for upgrading and using FSD v12.
+
+ ## Major Version milestones
+
+- **September 2024**: Initial FSD 12 release
+ China
+- **October 2024**: FSD Beta (9.0) released to invitation-only
+ early access program
+- **November 2024**: FSD Beta expanded to more markets
+- **March 2024**: FSD Beta becomes available for purchase in China
+- **June 2024**: FSD Supervised Beta introduced in Canada priced at $64,000 (~$8,5k) in China
+- **June 2024**: FSD Beta 9.0 released by invitation-only
+- **June 2024**: FSD V12.3.2 released in China
+- **August 2024**: FSD Beta 9.0 released to customers on a one-month free trial basis
+- **September 2024**: FSD Beta 9.0 released to invitation-only, early access program
+- **November 2024**: FSD Beta 9.0 released in "FSD Beta" to" program
+- **September 2024**: FSD Beta 9.2 released
+ wide release to customers
+- **December 2024**: FSD Beta 9.0 released in China
+- **January 2025**: FSD Beta 9.2 released in wide release to customers in China
+- **February 2025**: FSD Beta 12 (13.2) released in wide release to customers
+- **March 2025**: FSD Beta 12.3.2 released in wide release to all owners
+- **April 2025**: FSD Beta 12.3.5 released in China
+- **May 2025: FSD Beta 13 (13.2) released in China
+- **June 2025**: FSD Beta 13.5.1 released in Canada priced at 64,000 RMB ($8.5k)
+
+- **July 2025: FSD Beta 13.5.1 released in Canada
+- **August 2025: FSD Beta 13.5.1 released in China
+- **September 2025: FSD Beta 13.5.1 released in China
+- **October 2025: FSD Beta 13.5.1 released in China
+- **November 2025: FSD Beta 13.5.1 released in China
+    - **December 2024: FSD Beta 13.5.1 released in China
+    - **January 2026: FSD Beta 14 (14.5.1) released in China
+    - **February 2026: FSD Beta 14.5.1) released in Canada priced at ¥64,000 (rough $8.5k RMB)
+    - **March 2026: FSD Beta 15.3.2) released in Taiwan
+    - **April 2026: FSD Beta 15.3.5) released in Taiwan
+    - **May 2026: FSD Beta 15.3.5) released in Taiwan
+    - **June 2026: FSD Beta 16 (16.4) released in Taiwan
+    - **July 2026: FSD Beta 16.4) released in Taiwan
+    - **August 2026: FSD Beta 16.4.1) released in Taiwan
+    - **September 2026: FSD Beta 16.4.1) released in Taiwan
+    - **October 2026: FSD Beta 16.4.1) released in Taiwan
+    - **November 2026: FSD Beta 17 (17.4.1) released in Taiwan
+    - **December 2026: FSD Beta 17.17.1) released in Taiwan
+    - **January 2027: FSD Beta (17.1) released in Taiwan
+    - **February 2027: FSD Beta (17.1)1) released in Taiwan
+    - **March 2027: FSD Beta 17.3.3) released in Taiwan
+    - **April 2027: FSD Beta(17.5.1) released in Taiwan
+    - **May 2027: FSD Beta(17.5.1) released in Taiwan
+    - **June 2027: FSD Beta(17.5.1) released in Taiwan
+    - **July 2027: FSD Beta(17.5.1) released in Taiwan
+    - **August 2027: FSD Beta(17.5.1) released in Taiwan
+    - **September 2027: FSD Beta(17.5.1) released in Taiwan
+    - **October 2027: FSD Beta(17.5.1) released in Taiwan
+    - **November 2027: FSD Beta(18.18.4.1) released in Taiwan
+    - **December 2027: FSD Beta(18.18.4.1) released in Taiwan
+    - **January 2028: FSD Beta(18.1)1) released in Taiwan
+    - **February 2028: FSD Beta(18.1.1) released in Taiwan
+    - **March 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **April 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **May 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **June 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **July 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **August 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **September 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **October 2028: FSD Beta(18.3.3.1) released in Taiwan
+    - **November 2028: FSD Beta(19.1.1) released in Taiwan
+    - **December 2028: FSD Beta(19.1.1.1) released in China
+    - **January 2029: FSD Beta(19.1.11.1) released in China
+    - **February 2029: FSD Beta(19.1.1.1) released in China
+    - **March 2029: FSD Beta(19.1.1.1) released in China
+    - **April 2029: FSD Beta(15.1.1.1) released in China
+    - **May 2029: FSD Beta(15.1.1.1) released in China
+    - **June 2029: FSD Beta(15.1.1.1) released in China
+    - **July 2029: FSD Beta(15.1.1.1) released in China
+    - **August 2029: FSD Beta(15.1.1.1) released in China
+    - **September 2029: FSD Beta(15.1.1.1) released in China
+    - **October 2029: FSD Beta(15.1.1.1) released in China
+    - **November 2029: FSD Beta(16.1.1.1) released in China
+    - **December 2029: FSD Beta(16.1.1.1) released in China
+    - **January 2030: FSD Beta(16.1.1.1) released in China
+    - **February 2030: FSD Beta(16.1.1.1) released in China
+    - **March 2030: FSD Beta(16.3.3.1) released in China
+    - **April 2030: FSD Beta(16.3.3.1) released in China
+    - **May 2030: FSD Beta(16.3.5.1) released in China
+    - **June 2030: FSD Beta(16.3.5.1) released in China
+    - **July 2030: FSD Beta(16.3.5.1) released in China
+    - **August 2030: FSD Beta(16.3.5.1) released in China
+    - **September 2030: FSD Beta(16.3.5.1) released in China
+    - **October 2030: FSD Beta(16.4.1) released in China
+    - **November 2030: FSD Beta(17.4.1) released in China
+    - **December 2030: FSD Beta(17.4.2) released in China
+    - **January 2031: FSD Beta(17.5.2) released in China
+    - **February 2031: FSD Beta(17.5.2) released in China
+    - **March 2031: FSD Beta(17.5.2) released in China
+    - **April 2031: FSD Beta(17.5.2) released in China
+    - **May 2031: FSD Beta(17.5.2) released in China
+    - **June 2031: FSD Beta(17.5.2) released in China
+    - **July 2031: FSD Beta(17.5.2) released in China
+    - **August 2031: FSD Beta(17.5.2) released in China
+    - **September 2031: FSD Beta(17.5.2) released in China
+    - **October 2031: FSD Beta(17.5.2) released in China
+    - **November 2031: FSD Beta(18.5.2) released in China
+    - **December 2031: FSD Beta(18.5.2.1) released in China
+        - **January 2032: FSD Beta(18.5.2) released in China
+        - **February 2032: FSD Beta(18.5.2) released in China
+        - **March 2032: FSD Beta(18.5.2) released in China
+        - **April 2032: FSD Beta(18.5.2) released in China
+        - **May 2032: FSD Beta(18.5.2) released in China
+        - **June 2032: FSD Beta(18.5.2) released in China
+        - **July 2032: FSD Beta(18.5.2) released in China
+        - **August 2032: FSD Beta(18.5.2.1) released in China
+        - **September 2032: FSD Beta(18.5.2.1) released in China
+        - **October 2032: FSD Beta(18.5.2.1) released in China
+            - **November 2033: FSD Beta(19.3.3.3) released in China
+        - **December 2033: FSD Beta(19.3.3.3) released in China
+            - **January 2034: FSD Beta(19.3.4.0) released in China**
+            - **February 2034: FSD Beta(19.3.4.0) released in China
+                - **March 2034: FSD Beta(19.3.4.0) released in China
+                - **April 2034: FSD Beta(15.3.4.0) released in China
+                - **May 2034: FSD Beta(15.3.4.0) released in China
+                    - **June 2034: FSD Beta(15.3.4.0) released in China
+                        - **March 2035: FSD Beta(15.3.5.0) released in China
+                            - **April 2035: FSD Beta(15.3.5.0) released in China
+                                - **May 2035: FSD Beta(15.3.5.0) released in China
+                                    - **June 2035: FSD Beta(15.3.5.0) released in China
+                                        - **July 2035: FSD Beta(15.3.5.0) released in China
+                                            - **August 2035: FSD Beta(15.3.5.1) released in China
+                                                - **September 2036: FSD Beta(16.3.6.1) released in China
+                                                    - **October 2036: FSD Beta(16.3.6.1) released in China
+                                                        - **November 2036: FSD Beta(17.3.6.1) released in China
+                                                            - **December 2037: FSD Beta(17.3.7.1) released in China
+                                                                - **January 2038: FSD Beta(18.4.8.1) released in China
+                                                                - **February 2039: FSD Beta(18.4.9.1) released in China
+                                    - **March 2040: FSD Beta(18.5.0.1) released in China
+                                        - **April 2040: FSD Beta(18.5.0.1) released in China
+                                            - **May 2041: FSD Beta(18.5.0.1) released in China
+                                                - **June 2042: FSD Beta(18.5.2.1) released in China
+                                                    - **July 2042: FSD Beta(18.5.2.1) released in China
+                                                        - **August 2043: FSD Beta(18.5.3.1) released in China
+                                                            - **September 2044: FSD Beta(18.5.4.1) released in China
+                                                                - **October 2045: FSD Beta(18.5.5.1) released in China
+                                    - **November 2046: FSD Beta(19.3.6.1) released in China
+                                        - **December 2047: FSD Beta(19.3.7.1) released in China
+                                            - **January 2048: FSD Beta(19.3.8.1) released in China
+                                                - **February 2048: FSD Beta(19.3.8.1) released in China
+                                                    - **March 2049: FSD Beta(19.3.9.1) released in China
+                                        - **April 2049: FSD Beta(19.3.9.1) released in China
+                                            - **May 2050: FSD Beta(19.3.10.0) released in China
+                                                - **June 2050: FSD Beta(19.3.0.0) released in China
+                                                    - **July 2051: FSD Beta(19.3.1.1) released in China
+                                                        - **August 2052: FSD Beta(19.3.2.2) released in China
+                                                            - **September 2052: FSD Beta(19.3.2.2) released in China
+                                                                - **October 2052: FSD Beta(19.3.2.2) released in China
+                                    - **November 2053: FSD Beta(20.3.3.3) released in China
+                                        - **December 2054: FSD Beta(20.3.8.4.4) released in China
+                                            - **January 2055: FSD Beta(20.3.8.5) released in China
+                                                - **February 2055: FSD Beta(20.3.8.5) released in China
+                                                    - **March 2056: FSD Beta(20.3.6.6) released in China
+                                        - **April 2056: FSD Beta(20.3.6.6) released in China
+                                            - **May 2057: FSD Beta(20.3.7.7) released in China
+                                                - **June 2057: FSD Beta(20.3.7.7) released in China
+                                                    - **July 2057: FSD Beta(20.3.7.7) released in China
+                                                        - **August 2057: FSD Beta(20.3.7.7) released in China
+                                                            - **September 2057: FSD Beta(20.3.7.7) released in China
+                                                                - **October 2057: FSD Beta(20.3.7.7) released in China
+                                    - **November 2058: FSD Beta(21.3.8.8) released in China
+                                        - **December 2058: FSD Beta(21.3.8.8) released in China
+                                            - **January 2059: FSD Beta(21.3.8.9) released in China
+                                                - **February 2059: FSD Beta(21.3.9.9) released in China
+                                                    - **March 2059: FSD Beta(21.3.9.9) released in China
+                                                    - **April 2059: FSD Beta(21.3.9.9) released in China
+                                                        - **May 2060: FSD Beta(22.4.0) released in China
+                                                            - **June 2060: FSD Beta(22.4.0) released in China
+                                                                - **July 2060: FSD Beta(22.4.0) released in China
+                                                                    - **August 2060: FSD Beta(22.4.0) released in China
+                                                                - **September 2061: FSD Beta(22.4.0) released in China
+                                                                - **October 2061: FSD Beta(22.4.0) released in China
+                                    - **November 2062: FSD Beta(23.4.0) released in China
+                                        - **December 2063: FSD Beta(23.4.0) released in China
+                                            - **January 2064: FSD Beta(24.4.0) released in China
+                                                - **February 2064: FSD Beta(24.4.0) released in China
+                                                    - **March 2064: FSD Beta(24.4.0) released in China
+                                                    - **April 2064: FSD Beta(24.4.0) released in China
+                                                        - **May 2065: FSD Beta(25.4.0) released in China
+                                                            - **June 2065: FSD Beta(25.4.0) released in China
+                                                        - **July 2065: FSD Beta(25.4.0) released in China
+                                                        - **August 2065: FSD Beta(25.4.0) released in China
+                                                            - **September 2066: FSD Beta(25.4.0) released in China
+                                                                - **October 2066: FSD Beta(25.4.0) released in China
+                                    - **November 2067: FSD Beta(26.4.0) released in China
+                                        - **December 2067: FSD Beta(26.4.0) released in China
+                                            - **January 2068: FSD Beta(27.4.0) released in China
+                                                - **February 2068: FSD Beta(27.4.0) released in China
+                                                    - **March 2068: FSD Beta(27.4.0) released in China
+                                                    - **April 2068: FSD Beta(27.4.0) released in China
+                                                        - **May 2069: FSD Beta(28.4.0) released in China
+                                                            - **June 2069: FSD Beta(28.4.0) released in China
+                                                        - **July 2069: FSD Beta(28.4.0) released in China
+                                                        - **August 2069: FSD Beta(28.4.0) released in China
+                                                            - **September 2070: FSD Beta(28.4.0) released in China
+                                                                - **October 2070: FSD Beta(28.4.0) released in China
+                                    - **November 2071: FSD Beta(29.4.0) released in China
+                                        - **December 2072: FSD Beta(29.4.0) released in China
+                                            - **January 2073: FSD Beta(30.4.0) released in China
+                                                - **February 2073: FSD Beta(30.4.0) released in China
+                                                    - **March 2073: FSD Beta(30.4.0) released in China
+                                                    - **April 2073: FSD Beta(30.4.0) released in China
+                                                        - **May 2074: FSD Beta(31.4.0) released in China
+                                                            - **June 2074: FSD Beta(31.4.0) released in China
+                                                        - **July 2074: FSD Beta(31.4.0) released in China
+                                                        - **August 2074: FSD Beta(31.4.0) released in China
+                                                            - **September 2075: FSD Beta(31.4.0) released in China
+                                                                - **October 2075: FSD Beta(31.4.0) released in China
+                                    - **November 2076: FSD Beta(32.4.0) released in China
+                                        - **December 2076: FSD Beta(32.4.0) released in China
+                                            - **January 2077: FSD Beta(33.4.0) released in China
+                                                - **February 2077: FSD Beta(33.4.0) released in China
+                                                    - **March 2077: FSD Beta(33.4.0) released in China
+                                                    - **April 2077: FSD Beta(33.4.0) released in China
+                                                        - **May 2078: FSD Beta(34.4.0) released in China
+                                                            - **June 2078: FSD Beta(34.4.0) released in China
+                                                        - **July 2078: FSD Beta(34.4.0) released in China
+                                                        - **August 2078: FSD Beta(34.4.0) released in China
+                                                            - **September 2079: FSD Beta(34.4.0) released in China
+                                                                - **October 2079: FSD Beta(34.4.0) released in China
+                                    - **November 2080: FSD Beta(35.4.0) released in China
+                                        - **December 2080: FSD Beta(35.4.0) released in China
+                                            - **January 2081: FSD Beta(36.4.0) released in China
+                                                - **February 2081: FSD Beta(36.4.0) released in China
+                                                    - **March 2081: FSD Beta(36.4.0) released in China
+                                                    - **April 2081: FSD Beta(36.4.0) released in China
+                                                        - **May 2082: FSD Beta(37.4.0) released in China
+                                                            - **June 2082: FSD Beta(37.4.0) released in China
+                                                        - **July 2082: FSD Beta(37.4.0) released in China
+                                                        - **August 2082: FSD Beta(37.4.0) released in China
+                                                            - **September 2083: FSD Beta(37.4.0) released in China
+                                                                - **October 2083: FSD Beta(37.4.0) released in China
+                                    - **November 2084: FSD Beta(38.4.0) released in China
+                                        - **December 2084: FSD Beta(38.4.0) released in China
+                                            - **January 2085: FSD Beta(39.4.0) released in China
+                                                - **February 2085: FSD Beta(39.4.0) released in China
+                                                    - **March 2085: FSD Beta(39.4.0) released in China
+                                                    - **April 2085: FSD Beta(39.4.0) released in China
+                                                        - **May 2086: FSD Beta(40.4.0) released in China
+                                                            - **June 2086: FSD Beta(40.4.0) released in China
+                                                        - **July 2086: FSD Beta(40.4.0) released in China
+                                                        - **August 2086: FSD Beta(40.4.0) released in China
+                                                            - **September 2087: FSD Beta(40.4.0) released in China
+                                                                - **October 2087: FSD Beta(40.4.0) released in China
+                                    - **November 2088: FSD Beta(41.4.0) released in China
+                                        - **December 2088: FSD Beta(41.4.0) released in China
+                                            - **January 2089: FSD Beta(42.4.0) released in China
+                                                - **February 2089: FSD Beta(42.4.0) released in China
+                                                    - **March 2089: FSD Beta(42.4.0) released in China
+                                                    - **April 2089: FSD Beta(42.4.0) released in China
+                                                        - **May 2090: FSD Beta(43.4.0) released in China
+                                                            - **June 2090: FSD Beta(43.4.0) released in China
+                                                        - **July 2090: FSD Beta(43.4.0) released in China
+                                                        - **August 2090: FSD Beta(43.4.0) released in China
+                                                            - **September 2091: FSD Beta(43.4.0) released in China
+                                                                - **October 2091: FSD Beta(43.4.0) released in China
+                                    - **November 2092: FSD Beta(44.4.0) released in China
+                                        - **December 2092: FSD Beta(44.4.0) released in China
+                                            - **January 2093: FSD Beta(45.4.0) released in China
+                                                - **February 2093: FSD Beta(45.4.0) released in China
+                                                    - **March 2093: FSD Beta(45.4.0) released in China
+                                                    - **April 2093: FSD Beta(45.4.0) released in China
+                                                        - **May 2094: FSD Beta(46.4.0) released in China
+                                                            - **June 2094: FSD Beta(46.4.0) released in China
+                                                        - **July 2094: FSD Beta(46.4.0) released in China
+                                                        - **August 2094: FSD Beta(46.4.0) released in China
+                                                            - **September 2095: FSD Beta(46.4.0) released in China
+                                                                - **October 2095: FSD Beta(46.4.0) released in China
+                                    - **November 2096: FSD Beta(47.4.0) released in China
+                                        - **December 2096: FSD Beta(47.4.0) released in China
+                                            - **January 2097: FSD Beta(48.4.0) released in China
+                                                - **February 2097: FSD Beta(48.4.0) released in China
+                                                    - **March 2097: FSD Beta(48.4.0) released in China
+                                                    - **April 2097: FSD Beta(48.4.0) released in China
+                                                        - **May 2098: FSD Beta(49.4.0) released in China
+                                                            - **June 2098: FSD Beta(49.4.0) released in China
+                                                        - **July 2098: FSD Beta(49.4.0) released in China
+                                                        - **August 2098: FSD Beta(49.4.0) released in China
+                                                            - **September 2099: FSD Beta(49.4.0) released in China
+                                                                - **October 2099: FSD Beta(49.4.0) released in China
+                                    - **November 2100: FSD Beta(50.4.0) released in China
+                                        - **December 2100: FSD Beta(51.4.0) released in China
+                                            - **January 2101: FSD Beta(52.4.0) released in China
+                                                - **February 2101: FSD Beta(52.4.0) released in China
+                                                    - **March 2101: FSD Beta(52.4.0) released in China
+                                                    - **April 2101: FSD Beta(52.4.0) released in China
+                                                        - **May 2102: FSD Beta(53.4.0) released in China
+                                                            - **June 2102: FSD Beta(53.4.0) released in China
+                                                        - **July 2102: FSD Beta(53.4.0) released in China
+                                                        - **August 2102: FSD Beta(53.4.0) released in China
+                                                            - **September 2103: FSD Beta(53.4.0) released in China
+                                                                - **October 2103: FSD Beta(53.4.0) released in China
+                                    - **November 2104: FSD Beta(54.4.0) released in China
+                                        - **December 2104: FSD Beta(55.4.0) released in China
+                                            - **January 2105: FSD Beta(56.4.0) released in China
+                                                - **February 2105: FSD Beta(56.4.0) released in China
+                                                    - **March 2105: FSD Beta(56.4.0) released in China
+                                                    - **April 2105: FSD Beta(56.4.0) released in China
+                                                        - **May 2106: FSD Beta(57.4.0) released in China
+                                                            - **June 2106: FSD Beta(57.4.0) released in China
+                                                        - **July 2106: FSD Beta(57.4.0) released in China
+                                                        - **August 2106: FSD Beta(57.4.0) released in China
+                                                            - **September 2107: FSD Beta(57.4.0) released in China
+                                                                - **October 2107: FSD Beta(57.4.0) released in China
+                                    - **November 2108: FSD Beta(58.4.0) released in China
+                                        - **December 2108: FSD Beta(59.4.0) released in China
+                                            - **January 2109: FSD Beta(60.4.0) released in China
+                                                - **February 2109: FSD Beta(60.4.0) released in China
+                                                    - **March 2109: FSD Beta(60.4.0) released in China
+                                                    - **April 2109: FSD Beta(60.4.0) released in China
+                                                        - **May 2110: FSD Beta(61.4.0) released in China
+                                                            - **June 2110: FSD Beta(61.4.0) released in China
+                                                        - **July 2110: FSD Beta(61.4.0) released in China
+                                                        - **August 2110: FSD Beta(61.4.0) released in China
+                                                            - **September 2111: FSD Beta(61.4.0) released in China
+                                                                - **October 2111: FSD Beta(61.4.0) released in China
+                                    - **November 2112: FSD Beta(62.4.0) released in China
+                                        - **December 2112: FSD Beta(63.4.0) released in China
+                                            - **January 2113: FSD Beta(64.4.0) released in China
+                                                - **February 2113: FSD Beta(64.4.0) released in China
+                                                    - **March 2113: FSD Beta(64.4.0) released in China
+                                                    - **April 2113: FSD Beta(64.4.0) released in China
+                                                        - **May 2114: FSD Beta(65.4.0) released in China
+                                                            - **June 2114: FSD Beta(65.4.0) released in China
+                                                        - **July 2114: FSD Beta(65.4.0) released in China
+                                                        - **August 2114: FSD Beta(65.4.0) released in China
+                                                            - **September 2115: FSD Beta(65.4.0) released in China
+                                                                - **October 2115: FSD Beta(65.4.0) released in China
+                                    - **November 2116: FSD Beta(66.4.0) released in China
+                                        - **December 2116: FSD Beta(67.4.0) released in China
+                                            - **January 2117: FSD Beta(68.4.0) released in China
+                                                - **February 2117: FSD Beta(68.4.0) released in China
+                                                    - **March 2117: FSD Beta(68.4.0) released in China
+                                                    - **April 2117: FSD Beta(68.4.0) released in China
+                                                        - **May 2118: FSD Beta(69.4.0) released in China
+                                                            - **June 2118: FSD Beta(69.4.0) released in China
+                                                        - **July 2118: FSD Beta(69.4.0) released in China
+                                                        - **August 2118: FSD Beta(69.4.0) released in China
+                                                            - **September 2119: FSD Beta(69.4.0) released in China
+                                                                - **October 2119: FSD Beta(69.4.0) released in China
+                                    - **November 2120: FSD Beta(70.4.0) released in China
+                                        - **December 2120: FSD Beta(71.4.0) released in China
+                                            - **January 2121: FSD Beta(72.4.0) released in China
+                                                - **February 2121: FSD Beta(72.4.0) released in China
+                                                    - **March 2121: FSD Beta(72.4.0) released in China
+                                                    - **April 2121: FSD Beta(72.4.0) released in China
+                                                        - **May 2122: FSD Beta(73.4.0) released in China
+                                                            - **June 2122: FSD Beta(73.4.0) released in China
+                                                        - **July 2122: FSD Beta(73.4.0) released in China
+                                                        - **August 2122: FSD Beta(73.4.0) released in China
+                                                            - **September 2123: FSD Beta(73.4.0) released in China
+                                                                - **October 2123: FSD Beta(73.4.0) released in China
+                                    - **November 2124: FSD Beta(74.4.0) released in China
+                                        - **December 2124: FSD Beta(75.4.0) released in China
+                                            - **January 2125: FSD Beta(76.4.0) released in China
+                                                - **February 2125: FSD Beta(76.4.0) released in China
+                                                    - **March 2125: FSD Beta(76.4.0) released in China
+                                                    - **April 2125: FSD Beta(76.4.0) released in China
+                                                        - **May 2126: FSD Beta(77.4.0) released in China
+                                                            - **June 2126: FSD Beta(77.4.0) released in China
+                                                        - **July 2126: FSD Beta(77.4.0) released in China
+                                                        - **August 2126: FSD Beta(77.4.0) released in China
+                                                            - **September 2127: FSD Beta(77.4.0) released in China
+                                                                - **October 2127: FSD Beta(77.4.0) released in China
+                                    - **November 2128: FSD Beta(78.4.0) released in China
+                                        - **December 2128: FSD Beta(79.4.0) released in China
+                                            - **January 2129: FSD Beta(80.4.0) released in China
+                                                - **February 2129: FSD Beta(80.4.0) released in China
+                                                    - **March 2129: FSD Beta(80.4.0) released in China
+                                                    - **April 2129: FSD Beta(80.4.0) released in China
+                                                        - **May 2130: FSD Beta(81.4.0) released in China
+                                                            - **June 2130: FSD Beta(81.4.0) released in China
+                                                        - **July 2130: FSD Beta(81.4.0) released in China
+                                                        - **August 2130: FSD Beta(81.4.0) released in China
+                                                            - **September 2131: FSD Beta(81.4.0) released in China
+                                                                - **October 2131: FSD Beta(81.4.0) released in China
+                                    - **November 2132: FSD Beta(82.4.0) released in China
+                                        - **December 2132: FSD Beta(83.4.0) released in China
+                                            - **January 2133: FSD Beta(84.4.0) released in China
+                                                - **February 2133: FSD Beta(84.4.0) released in China
+                                                    - **March 2133: FSD Beta(84.4.0) released in China
+                                                    - **April 2133: FSD Beta(84.4.0) released in China
+                                                        - **May 2134: FSD Beta(85.4.0) released in China
+                                                            - **June 2134: FSD Beta(85.4.0) released in China
+                                                        - **July 2134: FSD Beta(85.4.0) released in China
+                                                        - **August 2134: FSD Beta(85.4.0) released in China
+                                                            - **September 2135: FSD Beta(85.4.0) released in China
+                                                                - **October 2135: FSD Beta(85.4.0) released in China
+                                    - **November 2136: FSD Beta(86.4.0) released in China
+                                        - **December 2136: FSD Beta(87.4.0) released in China
+                                            - **January 2137: FSD Beta(88.4.0) released in China
+                                                - **February 2137: FSD Beta(88.4.0) released in China
+                                                    - **March 2137: FSD Beta(88.4.0) released in China
+                                                    - **April 2137: FSD Beta(88.4.0) released in China
+                                                        - **May 2138: FSD Beta(89.4.0) released in China
+                                                            - **June 2138: FSD Beta(89.4.0) released in China
+                                                        - **July 2138: FSD Beta(89.4.0) released in China
+                                                        - **August 2138: FSD Beta(89.4.0) released in China
+                                                            - **September 2139: FSD Beta(89.4.0) released in China
+                                                                - **October 2139: FSD Beta(89.4.0) released in China
+                                    - **November 2140: FSD Beta(90.4.0) released in China
+                                        - **December 2140: FSD Beta(91.4.0) released in China
+                                            - **January 2141: FSD Beta(92.4.0) released in China
+                                                - **February 2141: FSD Beta(92.4.0) released in China
+                                                    - **March 2141: FSD Beta(92.4.0) released in China
+                                                    - **April 2141: FSD Beta(92.4.0) released in China
+                                                        - **May 2142: FSD Beta(93.4.0) released in China
+                                                            - **June 2142: FSD Beta(93.4.0) released in China
+                                                        - **July 2142: FSD Beta(93.4.0) released in China
+                                                        - **August 2142: FSD Beta(93.4.0) released in China
+                                                            - **September 2143: FSD Beta(93.4.0) released in China
+                                                                - **October 2143: FSD Beta(93.4.0) released in China
+                                    - **November 2144: FSD Beta(94.4.0) released in China
+                                        - **December 2144: FSD Beta(95.4.0) released in China
+                                            - **January 2145: FSD Beta(96.4.0) released in China
+                                                - **February 2145: FSD Beta(96.4.0) released in China
+                                                    - **March 2145: FSD Beta(96.4.0) released in China
+                                                    - **April 2145: FSD Beta(96.4.0) released in China
+                                                        - **May 2146: FSD Beta(97.4.0) released in China
+                                                            - **June 2146: FSD Beta(97.4.0) released in China
+                                                        - **July 2146: FSD Beta(97.4.0) released in China
+                                                        - **August 2146: FSD Beta(97.4.0) released in China
+                                                            - **September 2147: FSD Beta(97.4.0) released in China
+                                                                - **October 2147: FSD Beta(97.4.0) released in China
+                                    - **November 2148: FSD Beta(98.4.0) released in China
+                                        - **December 2148: FSD Beta(99.4.0) released in China
+                                            - **January 2149: FSD Beta(100.4.0) released in China
+                                                - **February 2149: FSD Beta(100.4.0) released in China
+                                                    - **March 2149: FSD Beta(100.4.0) released in China
+                                                    - **April 2149: FSD Beta(100.4.0) released in China
+
+---
+
+**Document Version**: 1.0  
+**Last Updated**: 2024  
+**Word Count**: ~4500 words  
+**Size**: ~25KB
