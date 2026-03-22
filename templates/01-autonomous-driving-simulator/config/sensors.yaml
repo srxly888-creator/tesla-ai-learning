@@ -1,0 +1,85 @@
+# Sensor Configuration
+sensors:
+  # Front-facing Cameras
+  cameras:
+    front_main:
+      type: "camera"
+      position: "front_center"
+      resolution: [1280, 720]
+      fov: 120  # degrees
+      fps: 36
+      enabled: true
+      
+    front_left:
+      type: "camera"
+      position: "front_left"
+      resolution: [1280, 720]
+      fov: 90
+      fps: 36
+      enabled: true
+      
+    front_right:
+      type: "camera"
+      position: "front_right"
+      resolution: [1280, 720]
+      fov: 90
+      fps: 36
+      enabled: true
+      
+    rear:
+      type: "camera"
+      position: "rear_center"
+      resolution: [1280, 720]
+      fov: 120
+      fps: 36
+      enabled: true
+      
+  # Radar Sensors
+  radar:
+    front_long_range:
+      type: "radar"
+      position: "front_center"
+      max_range: 160  # meters
+      fov: 20  # degrees
+      frequency: 77  # GHz
+      enabled: true
+      
+    front_medium_range:
+      type: "radar"
+      position: "front_center"
+      max_range: 80
+      fov: 45
+      frequency: 77
+      enabled: true
+      
+  # Ultrasonic Sensors
+  ultrasonic:
+    front_left:
+      type: "ultrasonic"
+      position: "front_left"
+      max_range: 8  # meters
+      enabled: true
+      
+    front_right:
+      type: "ultrasonic"
+      position: "front_right"
+      max_range: 8
+      enabled: true
+      
+    rear_left:
+      type: "ultrasonic"
+      position: "rear_left"
+      max_range: 8
+      enabled: true
+      
+    rear_right:
+      type: "ultrasonic"
+      position: "rear_right"
+      max_range: 8
+      enabled: true
+
+# Sensor Fusion
+fusion:
+  method: "kalman_filter"
+  update_rate: 100  # Hz
+  confidence_threshold: 0.7

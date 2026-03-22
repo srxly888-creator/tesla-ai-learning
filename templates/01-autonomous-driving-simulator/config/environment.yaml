@@ -1,0 +1,78 @@
+# Environment Configuration
+environment:
+  name: "Urban Driving Simulator"
+  type: "urban"
+  
+  # World Settings
+  world:
+    size: [1000, 1000]  # meters
+    coordinate_system: "cartesian"
+    gravity: 9.81  # m/s^2
+    
+  # Weather Conditions
+  weather:
+    default: "clear"
+    conditions:
+      - clear
+      - rainy
+      - foggy
+      - snowy
+    visibility_range: 1000  # meters (clear weather)
+    
+  # Road Network
+  roads:
+    lanes_per_direction: 2
+    lane_width: 3.5  # meters
+    speed_limit: 60  # km/h
+    friction_coefficient: 0.7
+    
+  # Traffic Settings
+  traffic:
+    density: "medium"  # low, medium, high
+    vehicle_count: 50
+    pedestrian_count: 30
+    spawn_rate: 0.5  # vehicles per second
+    
+  # Obstacles
+  obstacles:
+    static:
+      - type: "parked_car"
+        count: 20
+      - type: "construction"
+        count: 5
+    dynamic:
+      - type: "pedestrian"
+        count: 30
+      - type: "cyclist"
+        count: 10
+      - type: "animal"
+        count: 5
+        
+  # Simulation Settings
+  simulation:
+    time_scale: 1.0  # real-time
+    physics_engine: "pybullet"
+    render: true
+    render_fps: 60
+    
+# Testing Scenarios
+scenarios:
+  - name: "highway_cruise"
+    description: "Highway driving with lane keeping"
+    duration: 300  # seconds
+    difficulty: "easy"
+    
+  - name: "urban_navigation"
+    description: "City driving with traffic signals"
+    duration: 600
+    difficulty: "medium"
+    
+  - name: "emergency_braking"
+    description: "Sudden obstacle avoidance"
+    duration: 60
+    difficulty: "hard"
+    
+  - name: "parking"
+    description: "Parallel and perpendicular parking"
+    duration: 180
+    difficulty: "medium"

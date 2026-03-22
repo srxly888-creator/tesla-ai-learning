@@ -1,0 +1,42 @@
+# Vehicle Configuration
+vehicle:
+  id: "tesla_model_3_sim"
+  name: "Tesla Model 3 Simulator"
+  
+  # Physical Properties
+  dimensions:
+    length: 4.694  # meters
+    width: 1.849   # meters
+    height: 1.443  # meters
+    wheelbase: 2.875  # meters
+    
+  # Dynamic Properties
+  dynamics:
+    max_speed: 250  # km/h
+    max_acceleration: 5.8  # m/s^2
+    max_deceleration: 9.8  # m/s^2
+    max_steering_angle: 35  # degrees
+    mass: 1847  # kg
+    
+  # Control Parameters
+  control:
+    pid:
+      kp: 1.0
+      ki: 0.1
+      kd: 0.05
+    mpc:
+      horizon: 20  # prediction steps
+      dt: 0.1  # time step (seconds)
+      
+  # Safety Limits
+  safety:
+    min_distance: 2.0  # meters
+    safe_braking_distance: 10.0  # meters
+    lane_change_duration: 3.0  # seconds
+    
+# Battery Configuration
+battery:
+  capacity: 75  # kWh
+  min_charge: 10  # %
+  max_charge: 100  # %
+  degradation_rate: 0.001  # per cycle
